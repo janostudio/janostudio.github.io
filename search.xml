@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[Markdown书写规范]]></title>
+      <url>/2017/09/12/Markdown%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83/</url>
+      <content type="html"><![CDATA[<h1 id="Markdown书写规范"><a href="#Markdown书写规范" class="headerlink" title="Markdown书写规范"></a>Markdown书写规范</h1><p><strong>适用于团队的统一 MarkDown 书写规范</strong></p>
+<p>由于 MarkDown 语法在细节的书写方式很多，为了让不同个体的文档传产出结构一致，提炼出此规范。<br>该规范遵循 <a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="external">MarkDown 官方语法</a> 以及 <a href="https://github.com/mojombo/github-flavored-markdown/issues/1" target="_blank" rel="external">GitHub MakDown 语法</a>，旨在统一书写格式和代码风格，将多种写法统一。</p>
+<p><em>注：本文档符合自身规范，可视作demo，参看源码</em></p>
+<p>大家可以 <code>fork</code> 后形成自己团队的规范版本</p>
+<h2 id="1-1全局规范"><a href="#1-1全局规范" class="headerlink" title="1.1全局规范"></a>1.1全局规范</h2><p><a name="top"></a></p>
+<ul>
+<li>MarkDown 文件均使用<code>.md</code>作为后缀 (<strong>小写字母</strong>)</li>
+<li>普通文本换行，使用行末尾<code>2空格</code>触发</li>
+</ul>
+<h2 id="格式规范"><a href="#格式规范" class="headerlink" title="格式规范"></a>格式规范</h2><h3 id="标题结构格式"><a href="#标题结构格式" class="headerlink" title="标题结构格式"></a>标题结构格式</h3><ol>
+<li>标题与紧贴的<code>上下正文</code>使用<code>1整行换行</code>隔开</li>
+<li><code>#</code>号和文字之间<code>1个空格</code>连接</li>
+<li>标题层级如下，最多6级</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># 顶级标题 等价于 title 和 &lt;h1&gt;</div><div class="line">## 次级标题 等价于 &lt;h2&gt;</div><div class="line">### 3级标题 等价于 &lt;h3&gt;</div><div class="line">#### 4级标题 等价于 &lt;h4&gt;</div><div class="line">##### 5级标题 等价于 &lt;h5&gt;</div><div class="line">###### 6级标题 等价于 &lt;h6&gt;</div><div class="line">####### 注：此行错误，标题层级最多6级 没有&lt;h7&gt;标签</div></pre></td></tr></table></figure>
+<h3 id="加强和强调规范"><a href="#加强和强调规范" class="headerlink" title="加强和强调规范"></a>加强和强调规范</h3><p>以下两种写法都是正确的，请统一为<strong>第一种</strong>，即一律使用 <code>**加强</code> <code>*强调</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*emphasize*   **strong** 相当于&lt;strong&gt;标签和&lt;em&gt;标签</div><div class="line">_emphasize_   __strong__</div></pre></td></tr></table></figure>
+<p>使用<code>~~</code>给文字添加删除线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~~strikethrough~~</div></pre></td></tr></table></figure></p>
+<h3 id="代码块规范"><a href="#代码块规范" class="headerlink" title="代码块规范"></a>代码块规范</h3><ul>
+<li>行内代码使用<code>1对波浪号</code> 如： `hello world!`</li>
+<li>块级代码使用<code>3个波浪号</code> 或 <code>整体4空格缩进</code>，且上下均用<code>整行隔开</code>，如下:  (<strong>占用7行</strong>)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;?php   </div><div class="line">   echo &apos;看我源码 - 3个波浪号&apos;;  </div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<pre><code>&lt;?php   
+    echo &apos;看我源码 - 4空格缩进&apos;;  
+?&gt;  
+</code></pre><h3 id="列表写法"><a href="#列表写法" class="headerlink" title="列表写法"></a>列表写法</h3><ul>
+<li>列号<code>1.</code> 或者<code>*</code>后其后内容<code>空格</code>隔开</li>
+<li>列表块前后<code>整行隔开</code> 如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1. Windows  </div><div class="line">2. Mac</div><div class="line">3. iOS</div><div class="line">    * iPhone</div><div class="line">    * iPad</div><div class="line">4. Android</div></pre></td></tr></table></figure>
+<p><strong>实际预览：</strong></p>
+<ol>
+<li>Windows  </li>
+<li>Mac</li>
+<li>iOS<ul>
+<li>iPhone</li>
+<li>iPad</li>
+</ul>
+</li>
+<li>Android</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">* Windows  </div><div class="line">*  Mac</div><div class="line">*  iOS</div><div class="line">*  Android</div><div class="line">    1. v3.2</div><div class="line">    2. v4.1</div></pre></td></tr></table></figure>
+<p><strong>实际预览：</strong></p>
+<ul>
+<li>Windows  </li>
+<li>Mac</li>
+<li>iOS</li>
+<li>Android<ol>
+<li>v3.2</li>
+<li>v4.1</li>
+</ol>
+</li>
+</ul>
+<h3 id="其他标签规范"><a href="#其他标签规范" class="headerlink" title="其他标签规范"></a>其他标签规范</h3><p>链接和Email<br>Inline:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">An [example](http://url.com/ &quot;Title&quot;)</div></pre></td></tr></table></figure>
+<p>引用样式标签 (titles are optional):</p>
+<pre><code>An [example][id]. Then, anywhere
+else in the doc, define the link:
+
+[id]: http://example.com/  &quot;Title&quot;
+</code></pre><p>Email:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">An email &lt;example@example.com&gt; link.</div></pre></td></tr></table></figure>
+<p>插图<br>Inline (titles are optional):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![alt text](/path/img.jpg &quot;Title&quot;)</div></pre></td></tr></table></figure>
+<p>引用式插图:</p>
+<pre><code>![alt text][id]
+
+[id]: /url/to/img.jpg &quot;Title&quot;
+</code></pre><p>引用块及嵌套</p>
+<blockquote>
+<p>Email-style angle brackets<br>are used for blockquotes.</p>
+<blockquote>
+<p>And, they can be nested.</p>
+</blockquote>
+<h4 id="Headers-in-blockquotes"><a href="#Headers-in-blockquotes" class="headerlink" title="Headers in blockquotes"></a>Headers in blockquotes</h4><ul>
+<li>You can quote a list.</li>
+<li>Etc.</li>
+</ul>
+</blockquote>
+<p>内联代码</p>
+<p><code>&lt;code&gt;</code> 段落中的用法</p>
+<p>也可以 <code>`代码中包含波浪号` </code>.<br>代码块</p>
+<p>Indent every line of a code block by at least 4 spaces or 1 tab.<br>代码的每行都最少用4个空格或者一个制表符(tab)</p>
+<p>我是普通文本块</p>
+<pre><code>我是一个预格式化的
+代码块.
+</code></pre><p>水平分割线<br>三个<code>连字符-</code>:</p>
+<hr>
+<h3 id="表格规范"><a href="#表格规范" class="headerlink" title="表格规范"></a>表格规范</h3><p>一个简单的表格看起来如下：</p>
+<table>
+<thead>
+<tr>
+<th>第一个头部</th>
+<th>第二个头部</th>
+<th>第三个头部</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内容格子</td>
+<td>内容格子</td>
+<td>内容格子</td>
+</tr>
+<tr>
+<td>内容格子</td>
+<td>内容格子</td>
+<td>内容格子</td>
+</tr>
+</tbody>
+</table>
+<p>每列的对齐可以通过在分割线上添加冒号来实现：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">第一个头部</th>
+<th style="text-align:center">第二个头部</th>
+<th style="text-align:right">第三个头部</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">左对齐</td>
+<td style="text-align:center">居中</td>
+<td style="text-align:right">右对齐</td>
+</tr>
+<tr>
+<td style="text-align:left">左对齐</td>
+<td style="text-align:center">居中</td>
+<td style="text-align:right">右对齐</td>
+</tr>
+</tbody>
+</table>
+<h3 id="页内锚标记"><a href="#页内锚标记" class="headerlink" title="页内锚标记"></a>页内锚标记</h3><ul>
+<li><a href="#11全局规范">点我跳转到顶部</a>   // 利用 <code>#</code>,<code>##</code> 生成 <code>id</code> 锚标签  </li>
+<li><a href="#top">另一种锚标记</a> // 利用 <code>&lt;a name=&quot;top&quot;&gt;&lt;/a&gt;</code></li>
+</ul>
+<hr>
+<p>附：参考 Hello-World.md 源码，<em>注意换行的使用</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"># Hello-World</div><div class="line"></div><div class="line">这是一个范例文件格式</div><div class="line">我是普通换行</div><div class="line"></div><div class="line">## 我是&lt;h2&gt;标题</div><div class="line"></div><div class="line">我是`&lt;h2&gt;`的内容</div><div class="line"></div><div class="line">## 我是&lt;h3&gt;标题</div><div class="line"></div><div class="line">* Windows  </div><div class="line">*  Mac</div><div class="line">*  iOS</div><div class="line">*  Android</div></pre></td></tr></table></figure>
+<p>注：引用范例请参看源码底部</p>
+<h4 id="License"><a href="#License" class="headerlink" title="License"></a>License</h4><p>Released under <a href="http://rem.mit-license.org/" target="_blank" rel="external">MIT</a> LICENSE</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Markdown </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[css动画]]></title>
+      <url>/2017/06/01/cssAnimation/</url>
+      <content type="html"><![CDATA[<p>最近，写一个“销售助手”的前端展示页面，因为是纯前端页面以及对兼容性要求不高（不需要考虑IE用户，即IE10即以上版本），所以自由度很大，没有选择用react等前端框架，因为刚开始需求是只要一个页面TAT。页面用原生JS写，目前就用了“html2canvas.js”插件，恩，追求不用插件自己造轮子orz。公司项目为了兼容，动画全部用jQuery写，发现自己对CSS动画相当的生疏，越写越发现CSS动画能力的强大，再次做个记录。</p>
+<h2 id="1、-前端动画种类"><a href="#1、-前端动画种类" class="headerlink" title="1、 前端动画种类"></a>1、 前端动画种类</h2><p>前端动画如果用JS（不讨论jQuery，即animate()）书写，主要用<code>setTimeoout(),setTimeInterval(),requestAnimationFrame()</code>（这个还有有用处的，CSS还不能对所有的属性写动画，比如：<code>ScrollTop</code>等）。<br>用CSS写的话，<code>animation</code>配合<code>keyframe</code>可以完成很多复杂的动画，但是使用起来不方便，而<code>transition</code>虽然动画简单但是使用方便，而<code>transform</code>属性虽然英文有“改变”的含义但是它是静态属性。<br>JS动画和CSS动画之间，说的最多的估计就是性能了，然而看文档除了少数属性区别并不大。</p>
+<h3 id="1-1-属性"><a href="#1-1-属性" class="headerlink" title="1.1 属性"></a>1.1 属性</h3><p>Chromium项目里，渲染线程分为<code>main thread</code>和<code>compositor thread</code>。对于<code>backface-visibility、opacity、perspective、perspective-origin、transfrom</code>这几个属性，<br>css触发compositor thread 而JS触发 main thread再触发compositor thread，所以用CSS较好。</p>
+<blockquote>
+<p>在主线程中，维护了一棵Layer树（LayerTreeHost），管理了TiledLayer，在compositor thread，维护了同样一颗LayerTreeHostImpl，管理了LayerImpl，这两棵树的内容是拷贝关系。因此可以彼此不干扰，当Javascript在main thread操作LayerTreeHost的同时，compositor thread可以用LayerTreeHostImpl做渲染。当Javascript繁忙导致主线程卡住时，合成到屏幕的过程也是流畅的。<br>为了实现防假死，鼠标键盘消息会被首先分发到compositor thread，然后再到main thread。这样，当main thread繁忙时，compositor thread还是能够响应一部分消息，例如，鼠标滚动时，加入main thread繁忙，compositor thread也会处理滚动消息，滚动已经被提交的页面部分（未被提交的部分将被刷白）。</p>
+</blockquote>
+<h3 id="1-2-要注意reflow"><a href="#1-2-要注意reflow" class="headerlink" title="1.2 要注意reflow"></a>1.2 要注意reflow</h3><p>css或是js控制动画，reflow都是必然的，要减少reflow。</p>
+<h2 id="2、-CSS触发区别"><a href="#2、-CSS触发区别" class="headerlink" title="2、 CSS触发区别"></a>2、 CSS触发区别</h2><h2 id="2-1-transition"><a href="#2-1-transition" class="headerlink" title="2.1 transition"></a>2.1 transition</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">transition: property duration timing-function delay;</div><div class="line"></div><div class="line">transition: all ease-out 1s;</div><div class="line">-moz-transition: all ease-out 1s; /* Firefox 4 */</div><div class="line">-webkit-transition: all ease-out 1s; /* Safari 和 Chrome */</div><div class="line">-o-transition: all ease-out 1s; /* Opera */</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">linear</td>
+<td style="text-align:left">匀速（等于 cubic-bezier(0,0,1,1)）。</td>
+</tr>
+<tr>
+<td style="text-align:left">ease</td>
+<td style="text-align:left">从慢到快再到慢（cubic-bezier(0.25,0.1,0.25,1)）。</td>
+</tr>
+<tr>
+<td style="text-align:left">ease-in</td>
+<td style="text-align:left">慢慢变快（等于 cubic-bezier(0.42,0,1,1)）。</td>
+</tr>
+<tr>
+<td style="text-align:left">ease-out</td>
+<td style="text-align:left">慢慢变慢（等于 cubic-bezier(0,0,0.58,1)）。</td>
+</tr>
+<tr>
+<td style="text-align:left">ease-in-out</td>
+<td style="text-align:left">先变快再到慢（等于 cubic-bezier(0.42,0,0.58,1)）。渐显渐隐效果。</td>
+</tr>
+<tr>
+<td style="text-align:left">cubic-bezier(n,n,n,n)</td>
+<td style="text-align:left">在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值。</td>
+</tr>
+</tbody>
+</table>
+<p>当设定的属性改变时，动画就会触发，但是需要注意效率(主要正对减少reflow)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 不好的写法</div><div class="line">el.style.left = &quot;10px&quot;;</div><div class="line">el.style.top  = &quot;10px&quot;;</div><div class="line">el.style.background = &apos;#eee&apos;; </div><div class="line">// 比较好的写法</div><div class="line">el.className += &quot; theclassname&quot;;</div></pre></td></tr></table></figure></p>
+<p><strong>如果属性为设置初始值，则第一次不会触发；若要对位置高度的div设置动画可以用max-height来设置。</strong></p>
+<h2 id="2-2-animation"><a href="#2-2-animation" class="headerlink" title="2.2 animation"></a>2.2 animation</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">animation:mymove 5s infinite;</div><div class="line">-webkit-animation:mymove 5s infinite; </div><div class="line">@keyframes mymove</div><div class="line">&#123;</div><div class="line">    from &#123;left:0px;&#125;</div><div class="line">    to &#123;left:200px;&#125;</div><div class="line">&#125;</div><div class="line">@-webkit-keyframes mymove </div><div class="line">&#123;</div><div class="line">    from &#123;left:0px;&#125;</div><div class="line">    to &#123;left:200px;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当<code>display</code>属性改变时触发，页面加载时也会触发。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[webpack使用总结]]></title>
+      <url>/2017/05/28/webpack/</url>
+      <content type="html"><![CDATA[<p>使用过grunt、gulp等打包软件，然而发现webpack才是最流行的，本持着不断学习新技术的原始想法，更换了打包工具，当然webpack并不仅仅是一个打包工具，它也可以与Gulp/Grunt一起使用。此篇主要讲解webpack配合react使用，很多坑都花了我很多时间，以及这是一篇<code>未完结</code>的博客，因为目前还有几个问题未解决，等解决后再来更新。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 工具 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Webpack </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo使用教程]]></title>
+      <url>/2017/05/27/hexo/</url>
+      <content type="html"><![CDATA[<p>自己曾费时费力的写过两个博客，这两个博客，不是功能不全使用麻烦，就是样式不美观，加之网站没有流量即看的人少，更加没有动力去改进或维护服务器，最终结果就是博客废弃。前几天偶尔想写篇博客，发现服务器又崩了，就决定转战github，第一篇博客就记录一下自己搭建Hexo的经历。 </p>
+<h2 id="1、Hexo"><a href="#1、Hexo" class="headerlink" title="1、Hexo"></a>1、<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a></h2><p>Hexo是一个用<code>Node JS</code>搭建的静态博客网页，搭建完毕以后只要写markdown文本即可,然后发布在<a href="https://pages.github.com/" target="_blank" rel="external">github page</a>上。</p>
+<h2 id="2、安装及生成"><a href="#2、安装及生成" class="headerlink" title="2、安装及生成"></a>2、安装及生成</h2><h3 id="2-1-安装node-js"><a href="#2-1-安装node-js" class="headerlink" title="2.1 安装node.js"></a>2.1 安装node.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ node -v</div></pre></td></tr></table></figure>
+<h3 id="2-2-安装hexo"><a href="#2-2-安装hexo" class="headerlink" title="2.2 安装hexo"></a>2.2 安装hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<h3 id="2-3-生成项目"><a href="#2-3-生成项目" class="headerlink" title="2.3 生成项目"></a>2.3 生成项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hexo init githubname.github.io</div><div class="line">cd githubname.github.io</div><div class="line">npm install</div><div class="line"></div><div class="line">hexo clean //清空上次生成的项目</div><div class="line">hexo generate || hexo g //生成新项目</div><div class="line">hexo server || hexo s //本地调试预览</div></pre></td></tr></table></figure>
+<h2 id="3-新建博客"><a href="#3-新建博客" class="headerlink" title="3. 新建博客"></a>3. 新建博客</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new test</div></pre></td></tr></table></figure>
+<p>此时会在<code>source/_posts</code>目录下生成<code>test.md</code>文件，输入些许内容，然后保存.</p>
+<p>生成下，看看效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo g</div><div class="line">$ hexo s</div></pre></td></tr></table></figure>
+<p>访问 <strong>localhost:4000</strong> 即可</p>
+<h2 id="4-配置"><a href="#4-配置" class="headerlink" title="4. 配置"></a>4. 配置</h2><p>配置文件为hexo工程根目录下的<code>_config.yml</code>,，详细配置可以查看<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">官方文档</a>。</p>
+<h2 id="5-主题"><a href="#5-主题" class="headerlink" title="5. 主题"></a>5. 主题</h2><p>Hexo 主题可以在<a href="https://hexo.io/themes/" target="_blank" rel="external">官网</a>查看，并在<code>_config.yml</code>内设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: YourFavoriteTheme</div></pre></td></tr></table></figure>
+<h2 id="6-github"><a href="#6-github" class="headerlink" title="6. github"></a>6. github</h2><p>部署至github，需要安装部署插件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
+<p>然后在<code>_config.yml</code>中配置deploy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: &lt;repository url&gt;</div><div class="line">  branch: [branch]</div></pre></td></tr></table></figure>
+<p>推送至github：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
+<h2 id="7-新建博客配置"><a href="#7-新建博客配置" class="headerlink" title="7. 新建博客配置"></a>7. 新建博客配置</h2><h3 id="7-1-设置标签与类别"><a href="#7-1-设置标签与类别" class="headerlink" title="7.1 设置标签与类别"></a>7.1 设置标签与类别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">tags: </div><div class="line">	- Tag1</div><div class="line">	- Tag2</div><div class="line">	- Tag3</div><div class="line">categories: </div><div class="line">	- cate</div></pre></td></tr></table></figure>
+<h2 id="8-搜索系统"><a href="#8-搜索系统" class="headerlink" title="8. 搜索系统"></a>8. 搜索系统</h2><p>需要安装插件<a href="https://github.com/PaicHyperionDev/hexo-generator-search" target="_blank" rel="external">hexo-generator-search</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save hexo-generator-search</div></pre></td></tr></table></figure></p>
+<p>然后在_config.yml中新增<code>search</code>配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">search:</div><div class="line">	path: search.xml</div><div class="line">	field: all</div></pre></td></tr></table></figure></p>
+<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>以上教程均未涉及主题内的_config.yml的内容，以及主题所集成的服务以及主题各页面配置请仔细阅读主题文档。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 工具 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
+    
+    <entry>
+      <title><![CDATA[About]]></title>
+      <url>/about/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Gallery]]></title>
+      <url>/gallery/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+  
+</search>
