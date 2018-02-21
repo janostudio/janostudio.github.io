@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Git提交规范 | Janostudio | Everything you see exists together in a delicate balance.</title>
+
+  
+  <meta name="author" content="Janathon Jiang">
+  
+
+  
+  <meta name="description" content="Git Commit规范笔记便于历史版本查询，功能对比。
+
+规范
+
+1. Git 查看历史commit123git log &amp;lt;last tag&amp;gt; HEAD --pretty=format:%s$ git log &amp;lt;last release&amp;gt; HEAD --grep featu">
+  
+
+  
+  
+  <meta name="keywords" content="git">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Git提交规范"/>
+
+  <meta property="og:site_name" content="Janostudio"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Janostudio" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Janostudio</a>
+    </h1>
+    <p class="site-description">Everything you see exists together in a delicate balance.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/categories">Categories</a></li>
+      
+        <li><a href="/tags">Tags</a></li>
+      
+        <li><a href="/about">About</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Git提交规范</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/09/13/Git-Push/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-09-13T08:23:05.000Z">
+          2017-09-13
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="Git-Commit规范笔记"><a href="#Git-Commit规范笔记" class="headerlink" title="Git Commit规范笔记"></a>Git Commit规范笔记</h1><p>便于历史版本查询，功能对比。</p>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html" target="_blank" rel="external">规范</a></li>
+</ul>
+<h2 id="1-Git-查看历史commit"><a href="#1-Git-查看历史commit" class="headerlink" title="1. Git 查看历史commit"></a>1. Git 查看历史commit</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git log &lt;last tag&gt; HEAD --pretty=format:%s</div><div class="line"></div><div class="line">$ git log &lt;last release&gt; HEAD --grep feature</div></pre></td></tr></table></figure>
+<h2 id="2-commit-messgae的格式"><a href="#2-commit-messgae的格式" class="headerlink" title="2. commit messgae的格式"></a>2. commit messgae的格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</div><div class="line">// 空一行</div><div class="line">&lt;body&gt;</div><div class="line">// 空一行</div><div class="line">&lt;footer&gt;</div></pre></td></tr></table></figure>
+<h3 id="2-1-header"><a href="#2-1-header" class="headerlink" title="2.1 header"></a>2.1 header</h3><p><strong>type</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">feat：新功能（feature）</div><div class="line">fix：修补bug</div><div class="line">docs：文档（documentation）</div><div class="line">style： 格式（不影响代码运行的变动）</div><div class="line">refactor：重构（即不是新增功能，也不是修改bug的代码变动）</div><div class="line">test：增加测试</div><div class="line">chore：构建过程或辅助工具的变动</div></pre></td></tr></table></figure>
+<p><strong>scope</strong><br>用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。</p>
+<p><strong>subject</strong></p>
+<blockquote>
+<p>以动词开头，使用第一人称现在时，比如change，而不是changed或changes<br>第一个字母小写<br>结尾不加句号（.）</p>
+</blockquote>
+<h3 id="2-2-Body"><a href="#2-2-Body" class="headerlink" title="2.2 Body"></a>2.2 Body</h3><p>Body 部分是对本次 commit 的详细描述.</p>
+<h3 id="2-3-Footer"><a href="#2-3-Footer" class="headerlink" title="2.3 Footer"></a>2.3 Footer</h3><p>Footer 部分只用于两种情况。<br>（1）不兼容变动<br>（2）关闭 Issue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Closes #234</div></pre></td></tr></table></figure>
+<h3 id="2-4-Revert"><a href="#2-4-Revert" class="headerlink" title="2.4 Revert"></a>2.4 Revert</h3><p>还有一种特殊情况，如果当前 commit 用于撤销以前的 commit，则必须以revert:开头，后面跟着被撤销 Commit 的 Header。</p>
+<h2 id="3-生成change-log"><a href="#3-生成change-log" class="headerlink" title="3. 生成change log"></a>3. 生成change log</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm install -g conventional-changelog</div><div class="line">$ cd my-project</div><div class="line">$ conventional-changelog -p angular -i CHANGELOG.md -w</div></pre></td></tr></table></figure>
+<p>上面命令不会覆盖以前的 Change log，只会在CHANGELOG.md的头部加上自从上次发布以来的变动。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conventional-changelog -p angular -i CHANGELOG.md -w -r 0</div></pre></td></tr></table></figure>
+<p>想生成所有发布的 Change log，运行命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">    &quot;changelog&quot;: &quot;conventional-changelog -p angular -i CHANGELOG.md -w -r 0&quot;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">$ npm run changelog</div></pre></td></tr></table></figure>
+<p>写入script</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/tool/">tool</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/git/">git</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2018 Janathon Jiang
+    
+  </p>
+</footer>
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-114538078-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+  </div>
+</div>
+</body>
+</html>
