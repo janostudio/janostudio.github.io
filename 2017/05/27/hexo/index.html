@@ -10,13 +10,12 @@
   
 
   
-  <meta name="description" content="自己曾费时费力的写过两个博客，这两个博客，不是功能不全使用麻烦，就是样式不美观，加之网站没有流量即看的人少，更加没有动力去改进或维护服务器，最终结果就是博客废弃。前几天偶尔想写篇博客，发现服务器又崩了，就决定转战github，第一篇博客就记录一下自己搭建Hexo的经历。 
-1、HexoHexo是一个">
+  <meta name="description" content="Blog">
   
 
   
   
-  <meta name="keywords" content="Hexo">
+  <meta name="keywords" content="hexo">
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
@@ -51,15 +50,15 @@
   <nav class="site-navigation">
     <ul>
       
-        <li><a href="/">Home</a></li>
+        <li><a href="/">主页</a></li>
       
-        <li><a href="/archives">Archives</a></li>
+        <li><a href="/archives">归档</a></li>
       
-        <li><a href="/categories">Categories</a></li>
+        <li><a href="/categories">分类</a></li>
       
-        <li><a href="/tags">Tags</a></li>
+        <li><a href="/tags">标签</a></li>
       
-        <li><a href="/about">About</a></li>
+        <li><a href="/about">关于</a></li>
       
     </ul>
   </nav>
@@ -90,7 +89,7 @@
   <div class="article-content">
     <div class="entry">
       
-        <p>自己曾费时费力的写过两个博客，这两个博客，不是功能不全使用麻烦，就是样式不美观，加之网站没有流量即看的人少，更加没有动力去改进或维护服务器，最终结果就是博客废弃。前几天偶尔想写篇博客，发现服务器又崩了，就决定转战github，第一篇博客就记录一下自己搭建Hexo的经历。 </p>
+        <p>自己从零开始写一整个完整的博客，是一个工程量很大的活，而且后期如果长期不维护，可能会出现服务器很久之前就已经崩溃的情况，因此使用Github Page + Hexo书写静态博客，不失为一种好的方式。Hexo部署与使用极其方便，可选择的主题也很多，使用markdown语法书写，应该是很适合码农使用的博客方案吧。</p>
 <h2 id="1、Hexo"><a href="#1、Hexo" class="headerlink" title="1、Hexo"></a>1、<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a></h2><p>Hexo是一个用<code>Node JS</code>搭建的静态博客网页，搭建完毕以后只要写markdown文本即可,然后发布在<a href="https://pages.github.com/" target="_blank" rel="external">github page</a>上。</p>
 <h2 id="2、安装及生成"><a href="#2、安装及生成" class="headerlink" title="2、安装及生成"></a>2、安装及生成</h2><h3 id="2-1-安装node-js"><a href="#2-1-安装node-js" class="headerlink" title="2.1 安装node.js"></a>2.1 安装node.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ node -v</div></pre></td></tr></table></figure>
 <h3 id="2-2-安装hexo"><a href="#2-2-安装hexo" class="headerlink" title="2.2 安装hexo"></a>2.2 安装hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g</div></pre></td></tr></table></figure>
@@ -110,7 +109,9 @@
 <h2 id="7-新建博客配置"><a href="#7-新建博客配置" class="headerlink" title="7. 新建博客配置"></a>7. 新建博客配置</h2><h3 id="7-1-设置标签与类别"><a href="#7-1-设置标签与类别" class="headerlink" title="7.1 设置标签与类别"></a>7.1 设置标签与类别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">tags: </div><div class="line">	- Tag1</div><div class="line">	- Tag2</div><div class="line">	- Tag3</div><div class="line">categories: </div><div class="line">	- cate</div></pre></td></tr></table></figure>
 <h2 id="8-搜索系统"><a href="#8-搜索系统" class="headerlink" title="8. 搜索系统"></a>8. 搜索系统</h2><p>需要安装插件<a href="https://github.com/PaicHyperionDev/hexo-generator-search" target="_blank" rel="external">hexo-generator-search</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save hexo-generator-search</div></pre></td></tr></table></figure></p>
 <p>然后在_config.yml中新增<code>search</code>配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">search:</div><div class="line">	path: search.xml</div><div class="line">	field: all</div></pre></td></tr></table></figure></p>
-<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>以上教程均未涉及主题内的_config.yml的内容，以及主题所集成的服务以及主题各页面配置请仔细阅读主题文档。</p>
+<h2 id="9-主体更改"><a href="#9-主体更改" class="headerlink" title="9. 主体更改"></a>9. 主体更改</h2><p><a href="https://hexo.io/themes/index.html" target="_blank" rel="external">主题</a><br><a href="https://hexo.io/zh-cn/docs/themes.html" target="_blank" rel="external">官方使用文档</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> -b master https://yourselectedtheme.com ./themes/themename</div></pre></td></tr></table></figure>
+<p>更改hexo的<code>_config.yml</code><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Extensions</span></div><div class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></div><div class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></div><div class="line"><span class="attr">theme:</span> <span class="string">themename</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -125,7 +126,7 @@
 
     <span class="post-categories">
       <i class="icon-categories"></i>
-        <a href="/categories/Hexo/">Hexo</a>
+        <a href="/categories/Tool/">Tool</a>
     </span>
     
 
@@ -134,7 +135,7 @@
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/Hexo/">Hexo</a>
+        <a href="/tags/hexo/">hexo</a>
     </span>
     
 
