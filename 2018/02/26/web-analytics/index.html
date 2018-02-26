@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>网站统计前端采集 | Janostudio | Everything you see exists together in a delicate balance.</title>
+
+  
+  <meta name="author" content="Janathon Jiang">
+  
+
+  
+  <meta name="description" content="Blog">
+  
+
+  
+  
+  <meta name="keywords" content="analytics">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="网站统计前端采集"/>
+
+  <meta property="og:site_name" content="Janostudio"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Janostudio" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Janostudio</a>
+    </h1>
+    <p class="site-description">Everything you see exists together in a delicate balance.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/categories">Categories</a></li>
+      
+        <li><a href="/tags">Tags</a></li>
+      
+        <li><a href="/about">About</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>网站统计前端采集</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/02/26/web-analytics/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-02-26T01:07:18.000Z">
+          2018-02-26
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>网站上线以后，不论是为了优化网站结构和体验还是基于运营对用户行为进行分析，都需要对网站流量数据做相关的统计。目前成熟且大规模使用的方案有，百度统计以及Google Analytics，基于政策考虑谷歌目前的整套方案并不推荐在国内站点使用，而百度如果不付费则存在各种限制，因此自己写一套方案是推荐的。</p>
+<p>在对网站页面统计做了技术调研后，发现统计主要有两种方式，侵入式与非侵入式，前者将统计写成一个功能模块，会提高现有代码模块间耦合，而后者通过解析文件内容来进行打点，不需要修改更改之前的代码，但是在实现具体事件监听时实现更加困难。</p>
+<h2 id="前端打点优缺点"><a href="#前端打点优缺点" class="headerlink" title="前端打点优缺点"></a>前端打点优缺点</h2><ul>
+<li>优点  </li>
+</ul>
+<ol>
+<li>各种交互行为数据均能采集，全面</li>
+<li>更为准确，页面用户打开后没加载执行完，不算PV、UV但是后台会计入</li>
+<li>规避部分爬虫影响</li>
+</ol>
+<ul>
+<li>缺点  </li>
+</ul>
+<ol>
+<li>数据易丢失</li>
+<li>日志数据更为完整</li>
+<li>请求还未发送完成时关掉页面，可能导致请求被 cancel 掉，这对一些用户黏性不是很强，跳出率很高的网站而言是另一个差异来源</li>
+</ol>
+<h2 id="基本数据统计"><a href="#基本数据统计" class="headerlink" title="基本数据统计"></a>基本数据统计</h2><p>对PV、UV、IP等数据进行统计，实际上是根据路由变化进行的统计，为了之后更方便的统计跳出率的数据可能需要做如下数据统计：</p>
+<p><img src="/images/analytics.jpeg" alt="网站统计数据"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 页面载入,放入页面顶部</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  ajax(<span class="string">'yourinfo'</span>)</div><div class="line">&#125;)()</div><div class="line"></div><div class="line"><span class="comment">// 路由更改时</span></div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'popstate'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">  ajax(<span class="string">'yourinfo'</span>)</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 离开页面，需设置同步，否则请求会被cancel</span></div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'unload'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">  ajax(<span class="string">'yourinfo'</span>)</div><div class="line">  <span class="comment">// var now = +new Date;</span></div><div class="line">  <span class="comment">// while(new Date - now &gt;= 10) &#123;&#125; // 阻塞 10ms</span></div><div class="line"></div><div class="line">  <span class="comment">// (new Image).src = 'http://example.com/s.gif';</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>基本统计字段：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>途径</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>访问时间</td>
+<td>web server</td>
+<td>后台/数据库</td>
+</tr>
+<tr>
+<td>IP</td>
+<td>web server</td>
+<td>后台/nginx</td>
+</tr>
+<tr>
+<td>域名</td>
+<td>javascript</td>
+<td>document.location.hostname</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>javascript</td>
+<td>document.URL</td>
+</tr>
+<tr>
+<td>分辨率</td>
+<td>javascript</td>
+<td>window.screen.height &amp; width</td>
+</tr>
+<tr>
+<td>Referrer</td>
+<td>javascript</td>
+<td>document.referrer</td>
+</tr>
+<tr>
+<td>浏览客户端</td>
+<td>web server</td>
+<td>js或后台</td>
+</tr>
+<tr>
+<td>客户端语言</td>
+<td>javascript</td>
+<td>navigator.language</td>
+</tr>
+<tr>
+<td>路由链</td>
+<td>javascript</td>
+<td></td>
+</tr>
+<tr>
+<td>访问标记</td>
+<td>javascript</td>
+</tr>
+</tbody>
+</table>
+<h2 id="特殊事件监听"><a href="#特殊事件监听" class="headerlink" title="特殊事件监听"></a>特殊事件监听</h2><p>对特殊事件监听方面，对于单页面应用而言，去解析文件然后去监听可能并不容易实现，但是侵入式的实现很方便。</p>
+<ol>
+<li>侵入式<br>由插件定义一个数据收集对象，并暴露一个数据传输的接口，简单而言就是：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">yourNeedListenEvent</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  analytics.ajax(<span class="string">'youinfo'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>非侵入式<br>需要具体到路由（参考可视化埋点），根据具体路由对元素或事件进行监听,需要对统计代码本身进行修改，如果不能实现可视化自动生成埋点代码，代码量较大：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// 路由更改时</span></div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'popstate'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  needListenEle.addEventListener(<span class="string">'event'</span>, yourFunction()&#123;&#125;)</div><div class="line">  <span class="comment">// 当离开路由时，需要解绑，防止内存泄露</span></div><div class="line">  needListenEle.removeEventListener(<span class="string">'event'</span>, yourFunction()&#123;&#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="后台数据收集"><a href="#后台数据收集" class="headerlink" title="后台数据收集"></a>后台数据收集</h2><p>现在ELK + Redis的开源实时日志分析平台已经很成熟了，由ElasticSearch提供收集接口，Logstash收集数据，Kibana做基本的前端展示即可。数据库做定时的数据处理，生成在线人数等等数据，并配合echarts等图表插件做特定的展示。</p>
+<p>后端应对日志进行切分，特殊行为日志应与普通日志分成两张表记录，字段差别很大。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
+<li><p>数据发送<br><code>&lt;img src=&#39;/log_xxx.gif?k=v&#39;&gt;</code> 或者 发送 ajax 请求的方式来发送日志请求。</p>
+</li>
+<li><p>页面跳转时，数据请求cancel<br><a href="http://www.barretlee.com/blog/2016/02/20/navigator-beacon-api/" target="_blank" rel="external">beacon-api</a></p>
+</li>
+<li><p>数据处理准确性<br><a href="https://mp.weixin.qq.com/s?__biz=MzI5MjM3OTA0MA==&amp;mid=2247484932&amp;idx=1&amp;sn=ade28c027d7c970b878f1fefbbd96537&amp;chksm=ec0306cbdb748fdd57585942706f6d37bfe6416f90044682ed2849253d8f2121043a643de3a4&amp;mpshare=1&amp;scene=23&amp;srcid=07317eP8SmbzH3h501PWSWGB#rd" target="_blank" rel="external">数据处理准确性</a></p>
+</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Tool/">Tool</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/analytics/">analytics</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2018 Janathon Jiang
+    
+  </p>
+</footer>
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-114538078-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+  </div>
+</div>
+</body>
+</html>
