@@ -67,6 +67,142 @@
 
   
     
+    <h3 class="article-title"><a href="/2019/06/10/VSCODE更新无权限问题/"><span>VSCODE更新无权限问题</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/06/10/VSCODE更新无权限问题/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-06-10T14:03:35.000Z">
+          2019-06-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="排查问题"><a href="#排查问题" class="headerlink" title="排查问题"></a>排查问题</h2><ul>
+<li>VSCODE报错</li>
+</ul>
+<p><code>Could not create temporary directory: Permission denied</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /Users/username/Library/Caches/</div><div class="line">ls -l</div></pre></td></tr></table></figure>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>注意： 先把vscode 完全关闭<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 1. 这一步是需要输入密码的</span></div><div class="line">chown <span class="variable">$USER</span> ~/Library/Caches/com.microsoft.VSCode.ShipIt/</div><div class="line"></div><div class="line"><span class="comment"># 2. 这一步是不需要输入密码的, 如果不进行第一步，第二步会报错</span></div><div class="line">chown <span class="variable">$USER</span> ~/Library/Caches/com.microsoft.VSCode.ShipIt/*</div><div class="line"></div><div class="line"><span class="comment"># 3. 更新xattr</span></div><div class="line">xattr -dr com.apple.quarantine /Applications/Visual\ Studio\ Code.app</div></pre></td></tr></table></figure></p>
+<h2 id="命令解释"><a href="#命令解释" class="headerlink" title="命令解释"></a>命令解释</h2><ul>
+<li>chown(change own)</li>
+</ul>
+<p>过chown改变文件的拥有者和群组。在更改文件的所有者或所属群组时，可以使用用户名称和用户识别码设置。普通用户不能将自己的文件改变成其他的拥有者。其操作权限一般为管理员。</p>
+<p>例子：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将file.c的文件所有者改为user</span></div><div class="line">chown user file.c</div><div class="line"><span class="comment"># 将rootfs目录及所有子目录子文件的所有者与群组改为root</span></div><div class="line">chown –R root:root rootfs</div></pre></td></tr></table></figure></p>
+<ul>
+<li>xattr</li>
+</ul>
+<p>扩展，允许操作 ‘文件系统的扩展属性’。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/工具/">工具</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/开发工具/">开发工具</a><a href="/tags/linux/">linux</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/02/26/performance/"><span>网站性能监控</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/02/26/performance/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-02-26T02:36:40.000Z">
+          2018-02-26
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p><a href="https://my.oschina.net/leejun2005/blog/636611" target="_blank" rel="external">性能检测</a></p>
+<hr>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://gtmetrix.com/" target="_blank" rel="external">gtmetrix</a><br><a href="http://www.webpagetest.org/" target="_blank" rel="external">WebPagetest</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Tool/">Tool</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/websitePerformance/">websitePerformance</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2018/02/26/web-analytics/"><span>网站统计前端采集</span></a></h3>
     
   
@@ -835,7 +971,7 @@ else in the doc, define the link:
     Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
     </br>
     
-    &copy; 2018 Janathon Jiang
+    &copy; 2019 Janathon Jiang
     
   </p>
 </footer>
