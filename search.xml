@@ -560,8 +560,8 @@ else in the doc, define the link:
     </entry>
     
     <entry>
-      <title><![CDATA[categories]]></title>
-      <url>/categories/index.html</url>
+      <title><![CDATA[tags]]></title>
+      <url>/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
@@ -573,8 +573,8 @@ else in the doc, define the link:
     </entry>
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>/tags/index.html</url>
+      <title><![CDATA[categories]]></title>
+      <url>/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
